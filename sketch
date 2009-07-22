@@ -3,9 +3,11 @@
 import sys, os
 
 VERSION = "0.01a"
+__sketchdir__ = os.path.dirname(sys.argv[0])
 
 def error(a):
 	print "sketch: " + a
+	sys.exit(1)
 
 def printHelpText():
 	"""Print the help text"""
@@ -28,11 +30,20 @@ def printVersionNumber():
 	"""Print the version number"""
 	print "sketch " + VERSION
 
-def newproj(name):
+def newproj(name, scm=None):
 	"""Create a new Sketch Project"""
-	## TODO: Find record the install directory and have it untar
-	## install_dir/newproj.tar.gz
-	os.system("tar -xvsf default-project.tar.gz && mv newproj " + name)
+	print name
+	os.system("tar -xvsf %s/default-project.tar.gz && mv default-project %s " %
+				(
+				__sketchdir__,
+				name
+				)
+			)
+	if scm == "git":
+		os.system("cd %s && git init" % name)
+	else:
+		error("unrecognized scm: \'%s\'" % scm)
+	sys.exit(1)
 
 def scaffold(name, arguements=None):
 	"""Generate the scaffolding"""
@@ -70,10 +81,12 @@ Try `sketch --help\' for more information.''')
 			else:
 				action = sys.argv[x]
 				if action == "newproj":
-					if len(sys.argv) < x+1:
-						error("missing project name")
-					else:
+					if len(sys.argv) < x+3:
 						newproj(sys.argv[x+1])
+					elif len(sys.argv) < x+2:
+						newproj(sys.argv[x+1], sys.argv[x+2].split(":")[1])
+					else:
+						error("missing project name")
 				elif action == "scaffold":
 					if len(sys.argv) < x+1:
 						error("missing model name")
