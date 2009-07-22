@@ -32,16 +32,31 @@ def printVersionNumber():
 
 def newproj(name, scm=None):
 	"""Create a new Sketch Project"""
-	print name
-	os.system("tar -xvsf %s/default-project.tar.gz && mv default-project %s " %
-				(
-				__sketchdir__,
-				name
-				)
-			)
+	print "Creating new project: " + name
+	if os.path.exists(name):
+		a = ""
+		while a != "y" and a != "n":
+			b = "Directory %s exists. Remove it and continue? (y/n) " % name
+			a = raw_input(b)
+		if a == "y":
+			os.system("rm -rf " + name)
+		else:
+			error("project creation aborted")
+	os.system("tar -xvsf %s/default-project.tar.gz" % __sketchdir__)
+	os.system("mv -v default-project " + name)
+	
+	##TODO: Add support of darcs, bzr, and other distributed scm tools
 	if scm == "git":
 		os.system("cd %s && git init" % name)
-	else:
+		os.system('''for i in $(find . -type d -regex ``./[^.].*'' -empty);
+do touch $i"/.gitignore"; done''')
+		os.system("cd %s && git add * && git commit -m 'first commit'" % name)
+	elif scm == "hg":
+		os.system("cd %s && hg init" % name)
+		os.system('''for i in $(find . -type d -regex ``./[^.].*'' -empty);
+do touch $i"/.hgignore"; done''')
+		os.system("cd %s && hg add * && hg commit -m 'first commit'" % name)
+	elif scm != None:
 		error("unrecognized scm: \'%s\'" % scm)
 	sys.exit(1)
 
@@ -52,13 +67,12 @@ def scaffold(name, arguements=None):
 		print x.split(":")
 
 def main():
-#	print sys.argv
-#	print len(sys.argv)
-	if len(sys.argv) < 2:
+	cmdlen = len(sys.argv)
+	if cmdlen < 2:
 		error('''no action specified
 Try `sketch --help\' for more information.''')
 	else:
-		for x in range(1, len(sys.argv)):
+		for x in range(1, cmdlen):
 			if sys.argv[x].startswith("--"):
 				option = sys.argv[x][2:]
 				if option == "help":
@@ -81,14 +95,14 @@ Try `sketch --help\' for more information.''')
 			else:
 				action = sys.argv[x]
 				if action == "newproj":
-					if len(sys.argv) < x+3:
-						newproj(sys.argv[x+1])
-					elif len(sys.argv) < x+2:
+					if cmdlen > x+2:
 						newproj(sys.argv[x+1], sys.argv[x+2].split(":")[1])
+					elif cmdlen > x+1:
+						newproj(sys.argv[x+1])
 					else:
 						error("missing project name")
 				elif action == "scaffold":
-					if len(sys.argv) < x+1:
+					if cmdlen < x+1:
 						error("missing model name")
 					else:
 						scaffold(sys.argv[x+1], sys.argv[x+2:])
