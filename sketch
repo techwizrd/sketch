@@ -55,7 +55,7 @@ do touch $i"/.gitignore"; done''')
 		os.system("cd %s && hg init" % name)
 		os.system('''for i in $(find . -type d -regex ``./[^.].*'' -empty);
 do touch $i"/.hgignore"; done''')
-		os.system("cd %s && hg add * && hg commit -m 'first commit'" % name)
+		os.system("cd %s && hg add * && hg commit -m 'first commit'" % name
 	elif scm != None:
 		error("unrecognized scm: \'%s\'" % scm)
 	sys.exit(1)
