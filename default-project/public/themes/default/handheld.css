@@ -1,0 +1,59 @@
+/*******************************************************************************
+ * handheld.css
+ * Copyright 2009 company/author
+ * written by author <name@domain.net>
+ *  
+ * == Description
+ * This file is the mobile CSS stylesheet seen by visitors using handheld
+ * devices such as mobile phones and other devices with limited screen space
+ * and processing power.
+ * 
+ * HELPFUL TIP: In this stylesheet, you want to focus on presenting content
+ * rather than pretty things. Also remember to use lower quality (smaller sized)
+ * images. Most mobile devices are very limited on computing power and have less
+ * functionality than a desktop web browser.
+ * 
+ * == Palette/Swatch
+ * #000000 - black
+ * #FFFFFF - white
+ *
+ ******************************************************************************/
+ 
+ /* Resets and Overrides */
+
+* { margin: 0; padding: 0; }
+img { border: none; }
+
+/* Links and Type */
+
+a { text-decoration: none; }
+a:link a:active a:visited { text-decoration: none; border-bottom: none; }
+a:hover { border-bottom: 1px solid; text-decoration: none; }
+
+h1 { font-size:200%; }
+h2 { font-size:160%; }
+h3 { font-size:125%; }
+h4 { font-size:100%; }
+
+p {}
+
+/* Main Layout */
+
+/* Secondary Layout Structure */
+
+/* Form Elements */
+
+label {
+	position : relative;
+	width : 15em;
+	display : block;
+	margin : .5em 0em;
+}
+label input {
+	position : absolute;
+	left : 100%;
+	top : 0px;
+	width : 10em;
+}
+
+/* Miscellaneous */

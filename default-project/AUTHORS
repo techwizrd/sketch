@@ -1,0 +1,54 @@
+This is where you include the names of authors and contributors. It's up to you 
+to determine how you would like to structure this file, but I generally go with:
+
+== Main Team
+
+Name/Username <user@domain.com> Position
+Name/Username <user@domain.com> Position
+Name/Username <user@domain.com> Position
+...
+
+== Contributors
+
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+...
+
+== Artists
+
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+...
+
+== Documenters
+
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+...
+
+== Testers
+
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+Name/Username <user@domain.com>
+...

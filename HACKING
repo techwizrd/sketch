@@ -1,0 +1,32 @@
+== HACKING
+
+This document contains guidelines on how to contribute to this project.
+
+== Dependencies
+
+- Python 2.4, 2.5, or 2.6
+- PHP 5
+- Apache
+- mod_rewrite (or compatible extension) 
+
+== Coding Style
+
+For Python, follow PEP 8, although I have a few requests.
+
+- Use TABs for indentation, NOT spaces.
+- Use CamelCasing for variable names, function names, class names, etc.
+- Class names should start with an upper case letter, eg. ClassName not 
+  className
+- Variable and function names should start with a lower case, eg. pythonRocks 
+  not PythonRocks
+
+For PHP, HTML, and JavaScript, follow the same style as above.
+
+Don't use crazy one-lines or anything. Make sure your code is readable and
+documented.
+
+==Repository
+
+We use git as our VCS/SCM of choice. It allows for easy N-way merging and is
+very fast at pulling repositories. If you would like to contribute, we have a 
+public github repository at http://github.com/techwizrd/sketch

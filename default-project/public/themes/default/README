@@ -1,0 +1,14 @@
+This is the general README file for the theme. Structure this however you would 
+like and write whatever you would like other people to read.
+
+As a note to theme developers, try to put your images and css in this directory 
+rather than in /public/images/ or /public/css/, as it allows for greater 
+flexibility and easier customization of the site.
+
+For instance, a dark colored site may oboviously have different images than a 
+site made up predominantly of light colors. Also, Internet Explorer 6 (and to 
+some extent 7) may need special images and css to deal with it's lack of 
+standards compliance and inability to handle PNG transparency properly.
+
+Another example: for mobile and handheld devices, you may want use simpler 
+stylesheets and fewer, lower-quality images.

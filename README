@@ -1,0 +1,8 @@
+== README
+
+Sketch is a PHP framework providing easy database agnostic communication, simple
+building of scaffolding for models, views, and controllers, automated adding of 
+tests, simple engine for theming, and other tools to make development less 
+tedious.
+
+To use, type 'sketch --help' in a terminal to read the help text.
